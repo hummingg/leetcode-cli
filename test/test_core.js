@@ -389,5 +389,15 @@ describe('core', function() {
         done();
       });
     });
+
+    it('should get problem of today ok', function(done) {
+      next.getProblemOfToday = (needT, cb) => {
+        cb(null, 'slug0');
+      }
+      core.getProblemOfToday(false, function(e, problem) {
+        assert.notExists(e);
+        done();
+      })
+    })
   }); // #getProblem
 });
